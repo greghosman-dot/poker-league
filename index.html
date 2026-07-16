@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Poker League — Sign Up &amp; Seat</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">♠</span>
+          <div>
+            <p class="brand-kicker">Poker League</p>
+            <h1 class="brand-title">Night Signup</h1>
+          </div>
+        </div>
+        <div class="stepper" aria-label="Signup progress">
+          <span class="step is-active" data-step-indicator="1">1</span>
+          <span class="step-line"></span>
+          <span class="step" data-step-indicator="2">2</span>
+          <span class="step-line"></span>
+          <span class="step" data-step-indicator="3">3</span>
+        </div>
+      </header>
+
+      <main>
+        <!-- Step 1: Profile -->
+        <section class="panel is-active" id="step-1" data-step="1">
+          <article class="event-card">
+            <div class="event-badge">This Week</div>
+            <h2 id="event-name">Tuesday Night Hold'em</h2>
+            <ul class="event-meta">
+              <li>
+                <span class="meta-label">When</span>
+                <span id="event-when">Tue · 7:00 PM</span>
+              </li>
+              <li>
+                <span class="meta-label">Where</span>
+                <span id="event-where">The Brass Rail · Main Room</span>
+              </li>
+              <li>
+                <span class="meta-label">Signup</span>
+                <span id="event-signup-window">Opens morning of event</span>
+              </li>
+              <li>
+                <span class="meta-label">Seats left</span>
+                <span id="event-seats-left">—</span>
+              </li>
+            </ul>
+          </article>
+
+          <form id="signup-form" class="form" novalidate>
+            <h3 class="section-title">Your info</h3>
+            <label class="field">
+              <span>Full name</span>
+              <input
+                id="player-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Alex Rivera"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input
+                id="player-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                placeholder="alex@email.com"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>Phone <em>(optional)</em></span>
+              <input
+                id="player-phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                inputmode="tel"
+                placeholder="(555) 123-4567"
+              />
+            </label>
+            <p class="form-error" id="form-error" hidden></p>
+            <button type="submit" class="btn btn-primary">
+              Continue to seats
+            </button>
+          </form>
+        </section>
+
+        <!-- Step 2: Seat map -->
+        <section class="panel" id="step-2" data-step="2" hidden>
+          <div class="seat-header">
+            <div>
+              <h2 class="section-title">Pick your seat</h2>
+              <p class="hint" id="seat-hint">
+                Tap an open seat. Green = open, gray = taken.
+              </p>
+            </div>
+            <div class="legend">
+              <span class="legend-item"><i class="dot open"></i> Open</span>
+              <span class="legend-item"><i class="dot taken"></i> Taken</span>
+              <span class="legend-item"><i class="dot selected"></i> Yours</span>
+            </div>
+          </div>
+
+          <div class="table-tabs" id="table-tabs" role="tablist"></div>
+          <div class="table-stage" id="table-stage"></div>
+
+          <div class="selection-bar" id="selection-bar" hidden>
+            <div>
+              <p class="selection-label">Selected</p>
+              <p class="selection-value" id="selection-value">—</p>
+            </div>
+            <button type="button" class="btn btn-primary" id="confirm-seat-btn">
+              Confirm seat
+            </button>
+          </div>
+
+          <button type="button" class="btn btn-ghost" id="back-to-info">
+            ← Back
+          </button>
+        </section>
+
+        <!-- Step 3: Done -->
+        <section class="panel" id="step-3" data-step="3" hidden>
+          <div class="success-card">
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <h2>You're signed up</h2>
+            <p class="success-lead" id="success-lead"></p>
+            <dl class="summary-list" id="summary-list"></dl>
+            <p class="hint">
+              Check-in opens at the venue. Bring your confirmation email (coming
+              soon) or show this screen to the dealer.
+            </p>
+            <div class="success-actions">
+              <button type="button" class="btn btn-primary" id="change-seat-btn">
+                Change seat
+              </button>
+              <button type="button" class="btn btn-ghost" id="start-over-btn">
+                Start over
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Demo only · seats saved in this browser</p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seat Map - The Poker Tour</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #0f172a; color: white; }
+    .table { display: inline-block; margin: 20px; padding: 20px; background: #1e2937; border-radius: 12px; }
+    .seat { display: inline-block; width: 60px; height: 60px; margin: 10px; background: #334155; border-radius: 50%; line-height: 60px; cursor: pointer; }
+    .seat.available { background: #22c55e; }
+    .seat.taken { background: #ef4444; }
+  </style>
+</head>
+<body>
+  <h1>The Poker Tour - Seat Map</h1>
+  <p>Click a seat to claim it</p>
+
+  <div class="table">
+    <h2>Table 1</h2>
+    <div class="seat available" onclick="claimSeat(this)">1</div>
+    <div class="seat available" onclick="claimSeat(this)">2</div>
+    <div class="seat taken" onclick="claimSeat(this)">3</div>
+    <div class="seat available" onclick="claimSeat(this)">4</div>
+    <div class="seat available" onclick="claimSeat(this)">5</div>
+  </div>
+
+  <script>
+    function claimSeat(seat) {
+      if (seat.classList.contains('taken')) {
+        alert("Seat is taken!");
+      } else {
+        seat.classList.remove('available');
+        seat.classList.add('taken');
+        alert("Seat claimed successfully!");
+      }
+    }
+  </script>
+</body>
+</html>

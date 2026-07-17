@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venue - The Rail Sports Pub</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #0f172a; color: white; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .login { }
+    .main { }
+    .sidebar { padding-left: 30px; border-left: 1px solid #334155; }
+    .columns { display: flex; justify-content: space-between; }
+    .column { width: 48%; }
+    .game { padding: 15px; margin: 10px 0; background: #1e2937; border-radius: 8px; }
+    button { background: #64748b; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; margin: 5px; }
+    button.green { background: #22c55e; color: black; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>The Rail Sports Pub</h1>
+    <div class="login">
+      <button onclick="login()">Sign In</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <p>Select a Game</p>
+
+    <div class="columns">
+      <div class="column">
+        <h2>Current / Running Games</h2>
+        <div id="current-games">Loading games...</div>
+      </div>
+
+      <div class="column">
+        <h2>Upcoming Games</h2>
+        <div id="upcoming-games">Loading games...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <h2>Lifetime VIP Points (Room Level)</h2>
+    <p>Top Player: Greg H - 1,245 pts</p>
+
+    <h2>Current Series</h2>
+    <p>Rail 10 Week Series - Top: Mike S (890 pts)</p>
+    <p>The Poker Tour Quarterly - Top: Sarah K (1,120 pts)</p>
+  </div>
+
+  <script>
+    function login() {
+      const role = prompt("Enter role (player/dealer/super):", "player");
+      alert(`Logged in as ${role}`);
+    }
+
+    document.getElementById('current-games').innerHTML = `<div class="game">Thursday Night Deepstack - Now <button class="green" onclick="pickSeat()">Pick Seat</button><button class="green" onclick="joinWaitlist()">Join Waitlist</button></div>`;
+    document.getElementById('upcoming-games').innerHTML = `<div class="game">Friday Night Bounty - Tomorrow 6PM <button class="green" onclick="intentToPlay()">Intent to Play</button></div>`;
+  </script>
+</body>
+</html>

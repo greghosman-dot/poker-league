@@ -1,0 +1,21 @@
+{
+  "name": "thepokersignup",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.1",
+    "turbo": "^2.10.5"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "fastify": "^5.10.0"
+  }
+}

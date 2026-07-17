@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Splash - The Poker Tour</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #0f172a; color: white; }
+    .login { position: absolute; top: 20px; left: 20px; }
+    button { background: #64748b; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; }
+    .venue { margin: 15px auto; padding: 20px; max-width: 500px; background: #1e2937; border-radius: 12px; cursor: pointer; }
+    .venue:hover { background: #334155; }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <button onclick="login()">Sign In</button>
+  </div>
+
+  <h1>The Poker Tour</h1>
+  <p>Select a Venue</p>
+
+  <div id="venues">Loading venues...</div>
+
+  <script>
+    function login() {
+      const role = prompt("Enter role (player/dealer/super):", "player");
+      alert(`Logged in as ${role}`);
+    }
+    fetch('http://localhost:3001/admin/venues')
+      .then(res => res.json())
+      .then(venues => {
+        const container = document.getElementById('venues');
+        container.innerHTML = '';
+        venues.forEach(venue => {
+          const div = document.createElement('div');
+          div.className = 'venue';
+          div.innerHTML = `<h2>${venue.name}</h2>`;
+          div.onclick = () => window.location.href = `venue.html?venue=${venue.id}`;
+          container.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>

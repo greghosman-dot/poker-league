@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>thepokersignup</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #0f172a; color: white; }
+    h1 { color: #facc15; }
+    .room { margin: 20px auto; padding: 20px; max-width: 400px; background: #1e2937; border-radius: 12px; cursor: pointer; }
+    .room:hover { background: #334155; }
+    .login { position: absolute; top: 20px; left: 20px; }
+    button { background: #64748b; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <button onclick="login()">Sign In</button>
+  </div>
+
+  <h1>Welcome to The Poker Signup</h1>
+  <p>Choose your poker room</p>
+
+  <div class="room" onclick="selectRoom(1)">
+    <h2>The Poker Tour</h2>
+  </div>
+  <div class="room" onclick="selectRoom(2)">
+    <h2>Deep Space</h2>
+  </div>
+  <div class="room" onclick="selectRoom(3)">
+    <h2>High Roller Poker</h2>
+  </div>
+
+  <script>
+    function login() {
+      const role = prompt("Enter role (player/dealer/super):", "player");
+      alert(`Logged in as ${role}`);
+    }
+    function selectRoom(id) {
+      window.location.href = 'room.html';
+    }
+  </script>
+</body>
+</html>
